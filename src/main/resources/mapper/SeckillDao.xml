@@ -13,7 +13,7 @@
 
         and start_time <![CDATA[ <= ]]> #{killTime}
         and end_time >= #{killTime}
-        and number > 0;
+        and number > 0
     </update>
     <select id="queryById" resultType="seckill" parameterType="long">
         select
@@ -24,14 +24,19 @@
     <select id="queryAll" resultType="seckill">
         select*
         from seckill
-        order by create_time desc
+        order by create_time ASC
         limit #{offset},#{limit}
 </select>
+    <select id="getAll" resultType="seckill">
+        select*
+        from seckill
+  </select>
     <select id="seclet" resultType="seckill" parameterType="long">
         select
         *
         from seckill
         WHERE number=#{number}
     </select>
+    
 </mapper>
 

@@ -22,11 +22,15 @@ public class RedisDao {
         try{
             Jedis jedis=jedisPool.getResource();
             try{
-              String key="seckill："+seckilId;
+              String key="seckill:"+seckilId;
+
              byte[] bytes= jedis.get(key.getBytes());
              if(bytes!=null)
              {
                  Seckill seckill=schema.newMessage();
+                 /*
+                 反序列化
+                  */
                  ProtostuffIOUtil.mergeFrom(bytes,seckill,schema);
                  return seckill;
              }

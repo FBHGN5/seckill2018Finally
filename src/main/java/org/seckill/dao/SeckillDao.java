@@ -21,6 +21,7 @@ public interface SeckillDao {
      */
 
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+    List<Seckill> getAll();
     /*
     根据Number查询
      */

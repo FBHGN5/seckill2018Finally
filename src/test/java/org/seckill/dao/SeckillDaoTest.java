@@ -1,4 +1,7 @@
 package org.seckill.dao;
+/*
+单元测试
+ */
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.seckill.entity.Seckill;
@@ -22,7 +25,7 @@ public class SeckillDaoTest {
    //   Seckill queryById(long seckillId);
         long id=1003;
         Seckill seckill=seckillDao.queryById(id);
-        System.out.println(seckill.getName());
+        System.out.println(seckill.getId());
         System.out.println(seckill);
 
     }
@@ -40,8 +43,7 @@ public class SeckillDaoTest {
         int seckill=seckillDao.reduceNumber(1003,killtime);
         System.out.println(seckill);
     }
-
-    @Test
+@Test
     public void seclet() throws Exception {
         long number=200;
         List<Seckill> seckill=seckillDao.seclet(number);

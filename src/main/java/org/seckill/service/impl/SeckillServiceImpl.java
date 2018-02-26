@@ -2,6 +2,7 @@ package org.seckill.service.impl;
 
 import org.seckill.dao.SeckillDao;
 import org.seckill.dao.SuccessKilledDao;
+import org.seckill.dao.cache.RedisDao;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
@@ -23,6 +24,8 @@ import java.util.List;
 public class SeckillServiceImpl implements SeckillService {
     private  Logger logger= LoggerFactory.getLogger(this.getClass());
     @Autowired
+    private RedisDao redisDao;
+    @Autowired
     private SeckillDao seckillDao;
     @Autowired
     private SuccessKilledDao successKilledDao;
@@ -39,12 +42,20 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public Exposer exportSeckillUrl(long seckillId) {
+         Seckill seckill=redisDao.getSeckill(seckillId);
+         if(seckill==null)
+         {
+             seckill=seckillDao.queryById(seckillId);
+             if(seckill==null)
+             {
+                 return new Exposer(false,seckillId);
+             }
+             else{
+                 redisDao.putSeckill(seckill);
+             }
+         }
 
-        Seckill seckill=seckillDao.queryById(seckillId);
-        if(seckill==null)
-        {
-            return new Exposer(false,seckillId);
-        }
+
         Date startTime=seckill.getStartTime();
         Date endTime=seckill.getEndTime();
         Date nowTime=new Date();

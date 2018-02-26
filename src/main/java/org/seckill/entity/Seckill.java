@@ -1,16 +1,31 @@
 package org.seckill.entity;
 
+import java.io.Serializable;
 import java.util.Date;
-
-public class Seckill {
+public class Seckill{
     private long seckillid;
     private String name;
     private int number;
     private Date startTime;
     private Date endTime;
     private Date createTime;
+    private int id;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getSeckillid() {
+        return seckillid;
+    }
+
+    public void setSeckillid(long seckillid) {
+        this.seckillid = seckillid;
+    }
 
     public String getName() {
         return name;

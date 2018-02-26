@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="seckill2018:war exploded">
-    <output-path>$PROJECT_DIR$/../seckill2018/target/seckill2018</output-path>
+    <output-path>$PROJECT_DIR$/target/seckill2018</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -32,10 +32,18 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.7.RELEASE" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.2" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:1.0" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.7.3" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: com.dyuproject.protostuff:protostuff-core:1.0.8" />
+          <element id="library" level="project" name="Maven: com.dyuproject.protostuff:protostuff-api:1.0.8" />
+          <element id="library" level="project" name="Maven: com.dyuproject.protostuff:protostuff-runtime:1.0.8" />
+          <element id="library" level="project" name="Maven: com.dyuproject.protostuff:protostuff-collectionschema:1.0.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../seckill2018/target/seckill2018/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/seckill2018/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="seckill2018/web/Web" />
     </root>
