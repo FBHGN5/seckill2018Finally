@@ -23,7 +23,7 @@
                    </tr>
                </thread>
                <tbody>
-               <c:forEach var="sk" items="${list}">
+               <c:forEach var="sk" items="${page.list}">
                    <tr>
                        <td>${sk.name}</td>
                        <td>${sk.number}</td>

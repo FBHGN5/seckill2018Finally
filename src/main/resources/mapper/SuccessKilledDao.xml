@@ -3,6 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.seckill.dao.SuccessKilledDao">
+    <resultMap id="BaseResultMap" type="org.seckill.entity.SuccessKilled" >
+        <id column="seckill_id" property="seckillid" jdbcType="BIGINT" />
+        <id column="user_phone" property="userPhone" jdbcType="BIGINT" />
+        <result column="state" property="state" jdbcType="TINYINT" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+      <!-- 一对一，多对一 ，通过订单的id查询到该订单的用户信息，一个订单只能有一个用户-->
+        <association property="seckill" column="seckill_id" select="selectSeckillById" >
+        </association>
+    </resultMap>
+    <select id="selectSeckillById" resultType="org.seckill.entity.Seckill">
+        select * from seckill
+        where seckill_id= #{seckill_id}
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+        select
+       *
+        from success_killed
+        where seckill_id = #{seckillId,jdbcType=BIGINT}
+    </select>
+
     <insert id="insertSuccessKilled">
 /*ignore防止主键冲突，防止插入的值重复*/
          insert ignore into success_killed(seckill_id,user_phone,state)

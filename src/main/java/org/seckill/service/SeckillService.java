@@ -1,5 +1,6 @@
 package org.seckill.service;
 
+import com.github.pagehelper.PageInfo;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
@@ -31,5 +32,5 @@ public interface SeckillService {
      */
     SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
             throws SeckillException, RepeatKillException, SeckillCloseException;
-
+    PageInfo<Seckill> findpage(Integer page);
 }

@@ -1,5 +1,7 @@
 package org.seckill.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.seckill.dao.SeckillDao;
 import org.seckill.dao.SuccessKilledDao;
 import org.seckill.dao.cache.RedisDao;
@@ -15,7 +17,6 @@ import org.seckill.service.SeckillService;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
@@ -120,4 +121,13 @@ public class SeckillServiceImpl implements SeckillService {
             throw new SeckillException("秒杀错误"+e.getMessage());
         }
     }
+
+    @Override
+    public PageInfo<Seckill> findpage(Integer page) {
+        PageHelper.startPage(page, 3);
+        List<Seckill> list=getSeckillList();
+        return new PageInfo<Seckill>(list);
+    }
+
+
 }

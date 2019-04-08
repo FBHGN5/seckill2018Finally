@@ -23,7 +23,7 @@ public class SeckillDaoTest {
     @Test
     public void queryById() throws Exception {
    //   Seckill queryById(long seckillId);
-        long id=1003;
+        long id=1000;
         Seckill seckill=seckillDao.queryById(id);
         System.out.println(seckill.getId());
         System.out.println(seckill);
@@ -31,7 +31,7 @@ public class SeckillDaoTest {
     }
 @Test
     public void queryAll() throws Exception {
-     List<Seckill> length=seckillDao.queryAll(0,2);
+     List<Seckill> length=seckillDao.queryAll(1,2);
      for (Seckill seckill:length) {
            System.out.println(seckill);
        }

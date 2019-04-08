@@ -40,4 +40,9 @@ public class SuccessKilledDaoTest {
         System.out.println(s);
         System.out.println(s.getSeckill());
  }
+
+    @Test
+    public void selectByPrimaryKey() {
+        System.out.println(successKilledDao.selectByPrimaryKey(1000).getSeckill());
+    }
 }
